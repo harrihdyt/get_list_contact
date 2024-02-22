@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "144450904770",
+    "project_id": "test-int-5fa0a",
+    "storage_bucket": "test-int-5fa0a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:144450904770:android:fa194389f311f3d84ad15b",
+        "android_client_info": {
+          "package_name": "com.harrihidayat.get_list_contact"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7sMW7q9J3KXt_lCuWboJP9RDIeWATgXQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
