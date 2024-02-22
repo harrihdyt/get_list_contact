@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get_list_contact/view/pages/home_page.dart';
 import 'package:get_list_contact/view/pages/share_location.dart';
+import 'package:get_list_contact/view/pages/token_page.dart';
 import 'package:get_list_contact/view/pages/use_camera.dart';
 
 class MainPage extends StatefulWidget {
@@ -89,6 +90,24 @@ class _MainPageState extends State<MainPage> {
                     width: 10,
                   ),
                   Text('Share Location')
+                ],
+              )),
+          ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => TokenPage(),
+                    ));
+              },
+              child: const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.key),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Text('Show Token')
                 ],
               )),
         ],

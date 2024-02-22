@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get_list_contact/view/pages/main_page.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -29,6 +30,8 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Future<dynamic> signInWithGoogle() async {
+    SharedPreferences pref = await SharedPreferences.getInstance();
+
     try {
       final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
 
@@ -40,14 +43,19 @@ class _LoginPageState extends State<LoginPage> {
         idToken: googleAuth?.idToken,
       );
 
+      print('ini credent ${credential}');
+
+      pref.setString('token', credential.accessToken!);
+
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => MainPage()),
+      );
+
       return await FirebaseAuth.instance.signInWithCredential(credential);
     } on Exception catch (e) {
       print('exception->$e');
     }
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (context) => MainPage()),
-    );
   }
 
   @override
